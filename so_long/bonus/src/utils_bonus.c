@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
-#include "../mlx/mlx.h"
+#include "../so_long_bonus.h"
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {

@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
-#include "../mlx/mlx.h"
+#include "../so_long_bonus.h"
 
 //validamos que el numero de parametros y el fd sea correcto
 int	ft_check_parameters(int argc, char **argv)
@@ -74,7 +73,8 @@ int	ft_only_caracteres(t_game *game)
 				&& game->map[cont1][cont2] != 'E'
 				&& game->map[cont1][cont2] != 'P'
 				&& game->map[cont1][cont2] != '\0'
-				&& game->map[cont1][cont2] != '\n')
+				&& game->map[cont1][cont2] != '\n'
+				&& game->map[cont1][cont2] != 'M')
 				return (1);
 			cont1++;
 		}

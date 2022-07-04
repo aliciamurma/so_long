@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 09:20:15 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/06/30 09:23:04 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/06/30 09:24:44 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/06/30 09:26:18 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -30,6 +30,13 @@ typedef struct s_img
 	int		bpp;
 	int		endian;
 }	t_img;
+
+typedef struct s_enemy
+{
+	int		enemy_x;
+	int		enemy_y;
+	int		direction;
+}	t_enemy;
 
 typedef struct s_game
 {
@@ -51,10 +58,11 @@ typedef struct s_game
 	int		col;
 	int		ext;
 	int		playr;
-	int		enemy_x;
-	int		enemy_y;
+	t_enemy	*enemies;
 	int		movement;
 	int		temp_move;
+	int		alive;
+	int		game_num_enemies;
 }	t_game;
 
 void	ft_new_game(t_game *game);
@@ -82,7 +90,6 @@ int		ft_rodeado_y(t_game *game);
 int		ft_no_saltos(t_game *game);
 char	ft_get_direction(int keycode);
 int		ft_movements(int keycode, t_game *game);
-int		ft_more_more_movements(t_game *game);
 int		ft_cant_move(t_game *game);
 void	clean_img(t_game *game);
 int		ft_press_p(t_game *game, int cont1, int cont2);
@@ -93,12 +100,24 @@ int		ft_cant_s(t_game *game);
 int		ft_cant_w(t_game *game);
 int		ft_cant_d(t_game *game);
 void	ft_upload_images(t_game *game, int height, int width);
-int		ft_more_movements(t_game *game);
 void	ft_more_print(t_game *game, int cont1, int cont2);
 char	*ft_itoa(int n);
 void	ft_destroy(t_game *game);
-int		ft_strncmp(char *s1, char *s2, size_t n);
+int		ft_move_enemy(t_game *game);
+int		ft_kill_plus(t_game *game);
+void	ft_num_enemies_in_map(t_game *game);
+int		ft_move_right_and_left(t_game *game, int cont_e);
+int		ft_move_right(t_game *game, int cont_e);
+int		ft_more_movements(t_game *game);
+int		ft_more_more_movements(t_game *game);
+int		ft_movements(int keycode, t_game *game);
+void	ft_print_others(t_game *game, int cont1, int cont2);
+int		ft_print_invaders(t_game *game, int cont1, int cont2, int cont_e);
+int		ft_press_p(t_game *game, int cont1, int cont2);
 char	*ft_strnstr(char *haystack, char *needle, size_t len);
 int		ft_continue_reading(t_game *game, int fd, int i);
+int		ft_if_win(t_game *game);
+void	ft_print_all(t_game *game);
+void	ft_start(int argc, char **argv, t_game *game);
 
 #endif

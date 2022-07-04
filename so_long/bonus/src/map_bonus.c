@@ -10,8 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+//abrir el mapa, coger el contenido y guardarlo en una variable, map_bak
+
+#include "../so_long_bonus.h"
 #include "../mlx/mlx.h"
+
+//leemos el mapa y guardamos el mapa en map_bak
+
+void	ft_num_enemies_in_map(t_game *game)
+{
+	int	cont;
+
+	cont = 0;
+	game->game_num_enemies = 0;
+	while (game->map_bak[cont] != '\0')
+	{
+		if (game->map_bak[cont] == 'M')
+			game->game_num_enemies++;
+		cont++;
+	}
+}
 
 int	ft_continue_reading(t_game *game, int fd, int i)
 {
@@ -31,6 +49,7 @@ int	ft_continue_reading(t_game *game, int fd, int i)
 		i++;
 	}
 	free (line);
+	ft_num_enemies_in_map(game);
 	game->width = i - 1;
 	return (fd);
 }
@@ -64,59 +83,17 @@ int	ft_press_p(t_game *game, int cont1, int cont2)
 	else if (game->pos_player == 'S')
 	{
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->imgs[5].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
+			game->imgs[7].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
 	}
 	else if (game->pos_player == 'A')
 	{
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->imgs[6].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
+			game->imgs[8].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
 	}
 	else
 	{
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->imgs[7].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
-	}
-	return (1);
-}
-
-void	ft_more_print(t_game *game, int cont1, int cont2)
-{
-	if (game->map[cont1][cont2] == '0')
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->imgs[1].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
-	else if (game->map[cont1][cont2] == 'C')
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->imgs[2].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
-		game->collec++;
-	}
-}
-
-int	ft_print_map(t_game *game)
-{
-	int	cont1;
-	int	cont2;
-
-	cont1 = 0;
-	cont2 = 0;
-	game->collec = 0;
-	while (game->map[cont1])
-	{
-		cont2 = 0;
-		while (game->map[cont1][cont2])
-		{
-			if (game->map[cont1][cont2] == '1')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-					game->imgs[0].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
-			else if (game->map[cont1][cont2] == 'E')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-					game->imgs[4].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
-			else if (game->map[cont1][cont2] == 'P')
-				ft_press_p(game, cont1, cont2);
-			ft_more_print(game, cont1, cont2);
-			cont2++;
-		}
-		cont1++;
+			game->imgs[9].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
 	}
 	return (1);
 }

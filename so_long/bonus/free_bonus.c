@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "mlx/mlx.h"
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_destroy(t_game *game)
 {
@@ -44,6 +44,8 @@ int	ft_free_memory(t_game *game)
 		free(game->map_bak);
 	if (game->imgs)
 		free(game->imgs);
+	if (game->enemies)
+		free(game->enemies);
 	ft_destroy(game);
 	return (0);
 }

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 char	ft_get_direction(int keycode)
 {
@@ -33,8 +33,7 @@ int	ft_more_movements(t_game *game)
 	if (game->new_pos == 'W')
 	{
 		game->cont = game->cont + 1;
-		printf("Num de movimientos: %d \n", game->cont);
-			game->map[game->player_x][game->player_y] = '0';
+		game->map[game->player_x][game->player_y] = '0';
 		game->player_x = game->player_x - 1;
 		game->map[game->player_x][game->player_y] = 'P';
 		game->pos_player = 'W';
@@ -42,7 +41,6 @@ int	ft_more_movements(t_game *game)
 	else if (game->new_pos == 'A')
 	{
 		game->cont = game->cont + 1;
-		printf("Num de movimientos: %d \n", game->cont);
 		game->map[game->player_x][game->player_y] = '0';
 		game->player_y = game->player_y - 1;
 		game->map[game->player_x][game->player_y] = 'P';
@@ -56,7 +54,6 @@ int	ft_more_more_movements(t_game *game)
 	if (game->new_pos == 'S')
 	{
 		game->cont = game->cont + 1;
-		printf("Num de movimientos: %d \n", game->cont);
 		game->map[game->player_x][game->player_y] = '0';
 		game->player_x = game->player_x + 1;
 		game->map[game->player_x][game->player_y] = 'P';
@@ -65,7 +62,6 @@ int	ft_more_more_movements(t_game *game)
 	else if (game->new_pos == 'D')
 	{
 		game->cont = game->cont + 1;
-		printf("Num de movimientos: %d \n", game->cont);
 		game->map[game->player_x][game->player_y] = '0';
 		game->player_y = game->player_y + 1;
 		game->map[game->player_x][game->player_y] = 'P';
@@ -74,11 +70,8 @@ int	ft_more_more_movements(t_game *game)
 	return (0);
 }
 
-int	ft_movements(int keycode, t_game *game)
+int	ft_if_win(t_game *game)
 {
-	game->new_pos = ft_get_direction(keycode);
-	if (game->new_pos == -1)
-		ft_free_memory(game);
 	if (game->collec == 0 && (game->map[game->player_x]
 			[game->player_y + 1] == 'E'
 			|| game->map[game->player_x][game->player_y - 1] == 'E'
@@ -89,10 +82,37 @@ int	ft_movements(int keycode, t_game *game)
 			15, 66000000, "CONGRATULATIONS");
 		return (0);
 	}
-	if (ft_cant_move(game) == 0)
+	if (game->cont % 2 == 0)
+		game->movement = 0;
+	else
+		game->movement = 1;
+	return (1);
+}
+
+int	ft_movements(int keycode, t_game *game)
+{
+	int	cant;
+
+	cant = 0;
+	game->new_pos = ft_get_direction(keycode);
+	if (game->new_pos == -1)
+		ft_destroy(game);
+	if (!game->alive)
+	{
+		return (0);
+	}
+	cant = ft_cant_move(game);
+	if (!game->alive)
+	{
+		return (0);
+	}
+	if (cant == 0)
+		return (0);
+	if (ft_if_win(game) == 0)
 		return (0);
 	ft_more_movements(game);
 	ft_more_more_movements(game);
-	ft_print_map(game);
+	if (cant != -1)
+		ft_print_map(game);
 	return (0);
 }
