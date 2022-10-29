@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_map.c                                        :+:      :+:    :+:   */
+/*   print_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 21:28:14 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/06/28 21:28:31 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/29 20:56:48 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,26 @@ void	ft_print_others(t_game *game, int cont1, int cont2)
 		ft_press_p(game, cont1, cont2);
 }
 
+void	ft_print_empty_map(t_game *game)
+{
+	int	cont1;
+	int	cont2;
+
+	cont1 = 0;
+	cont2 = 0;
+	while (game->map[cont1])
+	{
+		cont2 = 0;
+		while (game->map[cont1][cont2])
+		{
+			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+				game->imgs[1].img_ptr, (cont2 * SIZE), (cont1 * SIZE));
+			cont2++;
+		}
+		cont1++;
+	}
+}
+
 void	ft_print_all(t_game *game)
 {
 	int		cont1;
@@ -68,6 +88,7 @@ void	ft_print_all(t_game *game)
 	cont1 = 0;
 	cont2 = 0;
 	conte = 0;
+	ft_print_empty_map(game);
 	while (game->map[cont1])
 	{
 		cont2 = 0;
