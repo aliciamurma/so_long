@@ -12,7 +12,7 @@ El mapa deberá ser rectangular y estar cerrado/rodeado de muros.
 
 BONUS
 
-Haces que el jugador pierda cuando toque una patrulla de enemigos (M en el mapa).
+Hacer que el jugador pierda cuando toque una patrulla de enemigos (M en el mapa).
 
 Animaciones de sprites.
 
