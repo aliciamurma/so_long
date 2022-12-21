@@ -3,9 +3,9 @@
 
 Objective: Create a basic 2D game in which a player has to recolect all the objects and exit.
 
-You must use the W, A, S and D for moving tha player.
+The player should be able to move in these 4 directions: up, down, left, right. You must use the W, A, S and D.
 
-El mapa estará construido de 3 componentes: paredes (1), al menos un coleccionable (C), espacio abierto (0), una salida (E) y un personaje (E).
+The map can be composed of only these 5 characters: 0 for an empty space, 1 for a wall, C for a collectible, E for a map exit, P for the player’s starting position.
 
 The map must be closed/surrounded by walls.
 
@@ -16,3 +16,13 @@ The map must be closed/surrounded by walls.
 • Add some sprite animation.
 
 • Display the movement count directly on screen instead of writing it in the shell.
+
+# Instruccions
+Compile code
+```shell
+make
+```
+Ejecute push_swap
+```shell
+./so_long [map].ber
+```
