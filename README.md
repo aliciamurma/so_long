@@ -22,7 +22,7 @@ Compile code
 ```shell
 make
 ```
-Ejecute push_swap
+Ejecute the game
 ```shell
 ./so_long [map].ber
 ```
