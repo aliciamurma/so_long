@@ -22,7 +22,15 @@ Compile code
 ```shell
 make
 ```
-Ejecute the game
+Execute the game
 ```shell
-./so_long [map].ber
+./so_long maps/[map].ber
+```
+Compile bonus code
+```shell
+make bonus
+```
+Execute the bonus game
+```shell
+./so_long bonus/maps/[map].ber
 ```
