@@ -19,7 +19,7 @@ int	ft_continue_reading(t_game *game, int fd, int i)
 
 	line = get_next_line(fd);
 	if (!line)
-		return (1);
+		exit(-1);
 	game->map_bak = NULL;
 	game->height = ft_strlen(line) - 1;
 	while (line)
