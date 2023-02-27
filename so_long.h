@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 09:20:15 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/06/30 09:23:04 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:09:15 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*ft_strdup(char *s1);
 char	*ft_cutword(char *prt);
 char	*get_next_line(int fd);
 char	*ft_read(int fd, char *ptr);
-int		ft_print_map(t_game *game);
+void	ft_print_map(t_game *game);
 int		ft_read_map(t_game *game, char **argv);
 char	**ft_split(char *s, char c);
 int		ft_check_caracteres(t_game *game);
@@ -80,9 +80,9 @@ void	ft_free_map_matrix(t_game *game);
 int		ft_rodeado_x(t_game *game);
 int		ft_rodeado_y(t_game *game);
 int		ft_no_saltos(t_game *game);
-char	ft_get_direction(int keycode);
+
 int		ft_movements(int keycode, t_game *game);
-int		ft_more_more_movements(t_game *game);
+
 int		ft_cant_move(t_game *game);
 void	clean_img(t_game *game);
 int		ft_press_p(t_game *game, int cont1, int cont2);
@@ -94,11 +94,20 @@ int		ft_cant_w(t_game *game);
 int		ft_cant_d(t_game *game);
 void	ft_upload_images(t_game *game, int height, int width);
 int		ft_more_movements(t_game *game);
-void	ft_more_print(t_game *game, int cont1, int cont2);
+// void	ft_more_print(t_game *game, int cont1, int cont2);
+
+// utils
 char	*ft_itoa(int n);
 void	ft_destroy(t_game *game);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 char	*ft_strnstr(char *haystack, char *needle, size_t len);
 int		ft_continue_reading(t_game *game, int fd, int i);
+
+// print
+int		ft_print_player(t_game *game, int cont1, int cont2);
+void	ft_print_nothing(t_game *game, int cont1, int cont2);
+void	ft_print_collect(t_game *game, int cont1, int cont2);
+void	ft_print_wall(t_game *game, int cont1, int cont2);
+void	ft_print_exit(t_game *game, int cont1, int cont2);
 
 #endif

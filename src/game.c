@@ -6,14 +6,14 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 12:59:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/17 17:39:38 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:08:56 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "../so_long.h"
 
-char	ft_get_direction(int keycode)
+static char	ft_get_direction(int keycode)
 {
 	if (keycode == 13)
 		return ('W');
@@ -28,7 +28,7 @@ char	ft_get_direction(int keycode)
 	return ('0');
 }
 
-int	ft_more_movements(t_game *game)
+static void	ft_move_w_a(t_game *game)
 {
 	if (game->new_pos == 'W')
 	{
@@ -48,10 +48,9 @@ int	ft_more_movements(t_game *game)
 		game->map[game->player_x][game->player_y] = 'P';
 		game->pos_player = 'A';
 	}
-	return (0);
 }
 
-int	ft_more_more_movements(t_game *game)
+static void	ft_move_s_d(t_game *game)
 {
 	if (game->new_pos == 'S')
 	{
@@ -71,14 +70,10 @@ int	ft_more_more_movements(t_game *game)
 		game->map[game->player_x][game->player_y] = 'P';
 		game->pos_player = 'D';
 	}
-	return (0);
 }
 
-int	ft_movements(int keycode, t_game *game)
+static int	ft_can_exit(t_game *game)
 {
-	game->new_pos = ft_get_direction(keycode);
-	if (game->new_pos == -1)
-		ft_free_memory(game);
 	if (game->collec == 0 && (game->map[game->player_x]
 			[game->player_y + 1] == 'E'
 			|| game->map[game->player_x][game->player_y - 1] == 'E'
@@ -87,12 +82,22 @@ int	ft_movements(int keycode, t_game *game)
 	{
 		mlx_string_put(game->mlx_ptr, game->win_ptr, 15,
 			15, 66000000, "CONGRATULATIONS");
-		return (0);
+		return (1);
 	}
+	return (0);
+}
+
+int	ft_movements(int keycode, t_game *game)
+{
+	game->new_pos = ft_get_direction(keycode);
+	if (game->new_pos == -1)
+		ft_free_memory(game);
+	if (ft_can_exit(game) == 1)
+		return (0);
 	if (ft_cant_move(game) == 0)
 		return (0);
-	ft_more_movements(game);
-	ft_more_more_movements(game);
+	ft_move_w_a(game);
+	ft_move_s_d(game);
 	ft_print_map(game);
 	return (0);
 }

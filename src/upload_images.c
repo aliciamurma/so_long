@@ -3,16 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   upload_images.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 20:20:15 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/06/28 20:20:38 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:17:34 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "../so_long.h"
 
+/**
+ * @brief Upload the other 4 images
+ * 
+ * @param game 
+ * @param height 
+ * @param width 
+ */
 void	ft_upload_images(t_game *game, int height, int width)
 {
 	game->imgs[3].img_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
@@ -33,6 +40,11 @@ void	ft_upload_images(t_game *game, int height, int width)
 			&game->imgs[7].bpp, &game->imgs[7].size_l, &game->imgs[7].endian);
 }
 
+/**
+ * @brief Upload the first 4 images
+ * 
+ * @param game 
+ */
 void	ft_new_game(t_game *game)
 {
 	int		height;

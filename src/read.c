@@ -6,13 +6,21 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 20:42:01 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/29 20:42:24 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:17:53 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 #include "../mlx/mlx.h"
 
+/**
+ * @brief Read the map
+ * 
+ * @param game 
+ * @param fd 
+ * @param i 
+ * @return int 
+ */
 int	ft_continue_reading(t_game *game, int fd, int i)
 {
 	char	*line;
@@ -35,6 +43,13 @@ int	ft_continue_reading(t_game *game, int fd, int i)
 	return (fd);
 }
 
+/**
+ * @brief Open and close the map
+ * 
+ * @param game 
+ * @param argv 
+ * @return int 
+ */
 int	ft_read_map(t_game *game, char **argv)
 {
 	int		fd;
