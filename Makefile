@@ -49,7 +49,6 @@ $(NAME) : $(OBJ) $(HEADER) $(HEADER_BONUS)
 
 bonus: $(OBJ_BONUS)
 	$(CC) $(FLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit $(OBJ_BONUS) -o $(NAME_BONUS)
-	touch @
 
 run  : 
 	./so_long maps/map1.ber
