@@ -77,9 +77,9 @@ int		ft_check_caracteres(t_game *game);
 int		ft_only_caracteres(t_game *game);
 int		ft_free_memory(t_game *game);
 void	ft_free_map_matrix(t_game *game);
-int		ft_rodeado_x(t_game *game);
-int		ft_rodeado_y(t_game *game);
-int		ft_no_saltos(t_game *game);
+int		ft_surrounded_x(t_game *game);
+int		ft_surrounded_y(t_game *game);
+int		ft_leaps(t_game *game);
 
 int		ft_movements(int keycode, t_game *game);
 
