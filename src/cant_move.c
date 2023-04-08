@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 12:20:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2023/04/08 18:22:05 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/04/08 18:28:51 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ static int	ft_cant_d(t_game *game)
 
 /**
  * @brief Check if we can move or not
- * The player has a movement. If we try to do that movement and we can't, return 0. Else, return 1.
+ * The player has a movement
+ * If we try to do that movement and we can't, return 0
+ * Else, return 1.
  * 
  * @param game 
  * @return int 

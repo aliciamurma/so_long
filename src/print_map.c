@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 12:40:53 by amurcia-          #+#    #+#             */
-/*   Updated: 2023/02/27 12:57:44 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/04/08 18:31:28 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 #include "../mlx/mlx.h"
+
+static void	ft_preprint(t_game *game, int cont1, int cont2)
+{
+	ft_print_nothing(game, cont1, cont2);
+	ft_print_player(game, cont1, cont2);
+}
 
 /**
  * @brief Print the map
@@ -36,7 +42,7 @@ void	ft_print_map(t_game *game)
 			else if (game->map[cont1][cont2] == 'E')
 				ft_print_exit(game, cont1, cont2);
 			else if (game->map[cont1][cont2] == 'P')
-				ft_print_player(game, cont1, cont2);
+				ft_preprint(game, cont1, cont2);
 			else if (game->map[cont1][cont2] == 'C')
 				ft_print_collect(game, cont1, cont2);
 			else if (game->map[cont1][cont2] == '0')

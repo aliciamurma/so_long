@@ -6,11 +6,12 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:09:04 by amurcia-          #+#    #+#             */
-/*   Updated: 2023/04/08 18:21:40 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/04/08 18:29:29 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
 int	ft_error_read(t_game *game)
 {
 	free(game->map_bak);
