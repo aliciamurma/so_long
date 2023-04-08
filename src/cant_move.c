@@ -65,6 +65,13 @@ int	ft_cant_d(t_game *game)
 	return (1);
 }
 
+/**
+ * @brief Check if we can move or not
+ * The player has a movement. If we try to do that movement and we can't, return 0. Else, return 1.
+ * 
+ * @param game 
+ * @return int 
+ */
 int	ft_cant_move(t_game *game)
 {
 	if (game->new_pos == 'W')

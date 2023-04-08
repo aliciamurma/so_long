@@ -14,7 +14,7 @@
 #include "../so_long.h"
 
 /**
- * @brief Upload the other 4 images
+ * @brief Upload 4 images in the array imgs[4-7]
  * 
  * @param game 
  * @param height 
@@ -22,10 +22,10 @@
  */
 void	ft_upload_images(t_game *game, int height, int width)
 {
-	game->imgs[3].img_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-			"images/heroe_w.xpm", &width, &height);
-	game->imgs[3].data = (int *)mlx_get_data_addr(game->imgs[3].img_ptr,
-			&game->imgs[3].bpp, &game->imgs[3].size_l, &game->imgs[3].endian);
+	game->imgs[4].img_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
+			"images/exit.xpm", &width, &height);
+	game->imgs[4].data = (int *)mlx_get_data_addr(game->imgs[4].img_ptr,
+			&game->imgs[4].bpp, &game->imgs[4].size_l, &game->imgs[4].endian);
 	game->imgs[5].img_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
 			"images/heroe_s.xpm", &width, &height);
 	game->imgs[5].data = (int *)mlx_get_data_addr(game->imgs[5].img_ptr,
@@ -41,7 +41,7 @@ void	ft_upload_images(t_game *game, int height, int width)
 }
 
 /**
- * @brief Upload the first 4 images
+ * @brief Upload 4 images in the array imgs[0-3]
  * 
  * @param game 
  */
@@ -63,9 +63,9 @@ void	ft_new_game(t_game *game)
 			"images/coleccionable.xpm", &width, &height);
 	game->imgs[2].data = (int *)mlx_get_data_addr(game->imgs[2].img_ptr,
 			&game->imgs[2].bpp, &game->imgs[2].size_l, &game->imgs[2].endian);
-	game->imgs[4].img_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-			"images/exit.xpm", &width, &height);
-	game->imgs[4].data = (int *)mlx_get_data_addr(game->imgs[4].img_ptr,
-			&game->imgs[4].bpp, &game->imgs[4].size_l, &game->imgs[4].endian);
+	game->imgs[3].img_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
+			"images/heroe_w.xpm", &width, &height);
+	game->imgs[3].data = (int *)mlx_get_data_addr(game->imgs[3].img_ptr,
+			&game->imgs[3].bpp, &game->imgs[3].size_l, &game->imgs[3].endian);
 	ft_upload_images(game, height, width);
 }

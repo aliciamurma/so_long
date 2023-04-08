@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-int	ft_rodeado_x(t_game *game)
+int	ft_surrounded_x(t_game *game)
 {
 	int	cont1;
 	int	cont2;
@@ -38,7 +38,7 @@ int	ft_rodeado_x(t_game *game)
 	return (0);
 }
 
-int	ft_rodeado_y(t_game *game)
+int	ft_surrounded_y(t_game *game)
 {
 	int	cont1;
 	int	cont2;
@@ -61,5 +61,21 @@ int	ft_rodeado_y(t_game *game)
 	}
 	if (cont2 != game->width)
 		return (1);
+	return (0);
+}
+
+int	ft_leaps(t_game *game)
+{
+	int	cont;
+
+	cont = 0;
+	while (game->map_bak[cont] != '\0')
+	{
+		if (game->map_bak[cont] == '\n' && game->map_bak[cont + 1] == '\0')
+			return (1);
+		if (game->map_bak[cont] == '\n' && game->map_bak[cont + 1] == '\n')
+			return (1);
+		cont++;
+	}
 	return (0);
 }

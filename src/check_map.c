@@ -22,36 +22,20 @@ int	ft_check_parameters(int argc, char **argv)
 	len = 0;
 	if (argc != 2)
 	{
-		printf("Error\nNum argumentos incorrecto\n");
+		printf("Error\nWrong number of arguments\n");
 		exit (0);
 	}
 	fd = open(argv[0], O_RDONLY);
 	if (fd < 0)
 	{
-		printf("Error\nNo se puede leer\n");
+		printf("Error\nCan't read the map\n");
 		exit (0);
 	}
 	len = ft_strlen(argv[1]);
 	if (!ft_strnstr(&argv[1][len - 4], ".ber", 4))
 	{
-		printf("Error\nExtension incorrecta\n");
+		printf("Error\nWrong extension\n");
 		exit (0);
-	}
-	return (0);
-}
-
-int	ft_no_saltos(t_game *game)
-{
-	int	cont;
-
-	cont = 0;
-	while (game->map_bak[cont] != '\0')
-	{
-		if (game->map_bak[cont] == '\n' && game->map_bak[cont + 1] == '\0')
-			return (1);
-		if (game->map_bak[cont] == '\n' && game->map_bak[cont + 1] == '\n')
-			return (1);
-		cont++;
 	}
 	return (0);
 }
