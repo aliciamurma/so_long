@@ -12,7 +12,7 @@
 
 #include "../so_long_bonus.h"
 
-int	ft_rodeado_x(t_game *game)
+int	ft_surrounded_x(t_game *game)
 {
 	int	cont1;
 	int	cont2;
@@ -38,7 +38,7 @@ int	ft_rodeado_x(t_game *game)
 	return (0);
 }
 
-int	ft_rodeado_y(t_game *game)
+int	ft_surrounded_y(t_game *game)
 {
 	int	cont1;
 	int	cont2;

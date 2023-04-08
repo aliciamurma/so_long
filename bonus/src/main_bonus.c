@@ -32,9 +32,9 @@ void	ft_start(int argc, char **argv, t_game *game)
 	ft_check_parameters(argc, argv);
 	if (ft_read_map(game, argv) == 1)
 		ft_error_read(game);
-	if (ft_no_saltos(game) == 1 || ft_only_caracteres(game) == 1
+	if (ft_leaps(game) == 1 || ft_only_caracteres(game) == 1
 		|| ft_check_caracteres(game) == 1
-		|| ft_rodeado_x(game) == 1 || ft_rodeado_y(game) == 1)
+		|| ft_surrounded_x(game) == 1 || ft_surrounded_y(game) == 1)
 		ft_error_map(game);
 	game->mlx_ptr = mlx_init();
 	ft_new_game(game);

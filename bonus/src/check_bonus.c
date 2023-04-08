@@ -39,7 +39,7 @@ int	ft_check_parameters(int argc, char **argv)
 	return (0);
 }
 
-int	ft_no_saltos(t_game *game)
+int	ft_leaps(t_game *game)
 {
 	int	cont;
 
