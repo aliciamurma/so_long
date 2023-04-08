@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cant_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 12:20:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/06/24 12:20:21 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/04/08 18:22:05 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "../so_long.h"
 
-int	ft_cant_w(t_game *game)
+static int	ft_cant_w(t_game *game)
 {
 	if (game->map[game->player_x - 1][game->player_y] == '1'
 		|| game->map[game->player_x - 1][game->player_y] == 'E')
@@ -26,7 +26,7 @@ int	ft_cant_w(t_game *game)
 	return (1);
 }
 
-int	ft_cant_a(t_game *game)
+static int	ft_cant_a(t_game *game)
 {
 	if (game->map[game->player_x][game->player_y - 1] == '1'
 		|| game->map[game->player_x][game->player_y - 1] == 'E')
@@ -39,7 +39,7 @@ int	ft_cant_a(t_game *game)
 	return (1);
 }
 
-int	ft_cant_s(t_game *game)
+static int	ft_cant_s(t_game *game)
 {
 	if (game->map[game->player_x + 1][game->player_y] == '1'
 		|| game->map[game->player_x + 1][game->player_y] == 'E')
@@ -52,7 +52,7 @@ int	ft_cant_s(t_game *game)
 	return (1);
 }
 
-int	ft_cant_d(t_game *game)
+static int	ft_cant_d(t_game *game)
 {
 	if (game->map[game->player_x][game->player_y + 1] == '1'
 		|| game->map[game->player_x][game->player_y + 1] == 'E')

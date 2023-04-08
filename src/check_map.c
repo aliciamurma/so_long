@@ -13,7 +13,13 @@
 #include "../so_long.h"
 #include "../mlx/mlx.h"
 
-//validamos que el numero de parametros y el fd sea correcto
+/**
+ * @brief Check that the number of parameters and the fd be correct
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int	ft_check_parameters(int argc, char **argv)
 {
 	int		fd;

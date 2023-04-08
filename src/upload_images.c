@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 20:20:15 by amurcia-          #+#    #+#             */
-/*   Updated: 2023/02/23 18:17:34 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/04/08 18:12:22 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @param height 
  * @param width 
  */
-void	ft_upload_images(t_game *game, int height, int width)
+static void	ft_upload_images(t_game *game, int height, int width)
 {
 	game->imgs[4].img_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
 			"images/exit.xpm", &width, &height);

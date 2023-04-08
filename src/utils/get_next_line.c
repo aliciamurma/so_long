@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 16:31:00 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/06/11 17:37:25 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/04/08 18:14:12 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // return 0 if EOF has been reached
 // return -1 if an error happens
 // return 1 if you read one line
-char	*ft_cutword(char *prt)
+static char	*ft_cutword(char *prt)
 {
 	int		i;
 	int		j;
@@ -42,7 +42,7 @@ char	*ft_cutword(char *prt)
 	return (dest);
 }
 
-char	*ft_read(int fd, char *ptr)
+static char	*ft_read(int fd, char *ptr)
 {
 	int		bytes;
 	char	*temp;
