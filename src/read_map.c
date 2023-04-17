@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 20:42:01 by amurcia-          #+#    #+#             */
-/*   Updated: 2023/02/23 18:17:53 by amurcia-         ###   ########.fr       */
+/*   Updated: 2023/04/17 13:31:25 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ int	ft_continue_reading(t_game *game, int fd, int i)
 	while (line)
 	{
 		game->width = ft_strlen(line) - 1;
-		game->map_bak = ft_strjoin(game->map_bak, line);
+		if (!game->map_bak)
+			game->map_bak = ft_strdup(line);
+		else
+			game->map_bak = ft_strjoin(game->map_bak, line);
 		free (line);
 		line = get_next_line(fd);
 		i++;
